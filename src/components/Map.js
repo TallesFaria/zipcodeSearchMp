@@ -3,30 +3,13 @@ import { GoogleMapLoader, GoogleMap, Marker, google } from 'react-google-maps'
 
 export default class Map extends Component {
 
-    // geocodeAddress(address) {
-    //     this.geocoder.geocode({ 'address': address }, function handleResults(results, status) {
-
-    //         if (status === google.maps.GeocoderStatus.OK) {
-
-    //             this.map.setCenter(results[0].geometry.location);
-    //             this.markers.setPosition(results[0].geometry.location);
-
-    //             return;
-    //         }
-
-    //         this.map.setCenter({
-    //             lat: ATLANTIC_OCEAN.latitude,
-    //             lng: ATLANTIC_OCEAN.longitude
-    //         });
-
-    //         this.markers.setPosition({
-    //             lat: ATLANTIC_OCEAN.latitude,
-    //             lng: ATLANTIC_OCEAN.longitude
-    //         });
-
-    //     }.bind(this));
-    // }
-
+    constructor(props) {
+        super(props)
+        this.state = {
+            lat: 40.7575285,
+            lng: -73.9884469
+        }
+    }
 
     render() {
         const mapContainer = <div style={{ height: '100%', width: '100%' }}></div>
@@ -44,13 +27,20 @@ export default class Map extends Component {
         })
 
 
-        // const search = this.props.search
-        // this.geocoder = new google.maps.Geocoder();
-
-        // address = this.props.center
-        
-        // this.geocodeAddress(address)
-
+        //var geocoder = new google.maps.Geocoder();
+        var address = this.props.search
+        console.log('Address:' + address)
+        // this.geocoder.geocode({ 'address': address }, function (results, status) {
+        //     if (status === google.maps.GeocoderStatus.OK) {
+        //         this.setState({
+        //             lat: results[0].geometry.location.lat(),
+        //             lng: results[0].geometry.location.lng()
+        //         })
+        //     }
+        //     else {
+        //         alert("Geocode was not successful for the following reason: " + status);
+        //     }
+        // });
 
         return (
 
